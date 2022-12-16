@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|assets|dist|plugins|images|js|css|uploads|favicon.png|bower_components|dist|plugins|img|basicprimitives|libraries|data)
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^(.*)$ ./index.php/#1 [L]
+
+<ifModule mod_headers.c>
+Header set Access-Control-Allow-Origin: *
+</ifModule>
